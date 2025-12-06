@@ -26,7 +26,7 @@ const Home = () => {
                 <div className="flex-1 flex flex-col gap-5">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl text-neutral-900 dark:text-white flex items-center gap-3">
-                            Swadeep Dhondi <span className="animate-wave">👋</span>
+                            <span className="whitespace-nowrap">Swadeep Dhondi</span> <span className="animate-wave">👋</span>
                         </h1>
                         <h2 className="text-xl font-medium text-neutral-600 dark:text-neutral-400">
                             Full Stack Developer
@@ -138,3 +138,4 @@ const Home = () => {
 };
 
 export default Home;
+
