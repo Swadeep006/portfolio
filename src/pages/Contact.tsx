@@ -64,9 +64,9 @@ const Contact = () => {
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 w-full">
+            <div className="grid md:grid-cols-5 gap-12 w-full">
                 {/* Contact Form */}
-                <div className="bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+                <div className="md:col-span-3 bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
                             <label htmlFor="name" className="text-sm font-medium text-neutral-900 dark:text-white">Your Name</label>
@@ -134,7 +134,7 @@ const Contact = () => {
                 </div>
 
                 {/* Direct Contact Info */}
-                <div className="flex flex-col gap-8 justify-center">
+                <div className="md:col-span-2 flex flex-col gap-8 justify-center">
                     <div className="flex flex-col gap-6">
                         <h2 className="text-xl font-semibold text-neutral-900 dark:text-white">Other ways to connect</h2>
 
