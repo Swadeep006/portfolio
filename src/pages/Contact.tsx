@@ -29,7 +29,16 @@ const Contact = () => {
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
+                const errorText = await response.text();
+                console.error('API Error Response:', errorText);
+
+                let errorData;
+                try {
+                    errorData = JSON.parse(errorText);
+                } catch (e) {
+                    throw new Error(`Server error (${response.status}): ${errorText.substring(0, 100)}`);
+                }
+
                 throw new Error(errorData.error || errorData.message || 'Failed to send message');
             }
 

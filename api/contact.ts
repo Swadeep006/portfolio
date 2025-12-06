@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const data = await resend.emails.send({
+        const { data, error } = await resend.emails.send({
             from: 'Contact Form <onboarding@resend.dev>',
             to: 'maildswadeep@gmail.com',
             replyTo: email as string,
@@ -37,9 +37,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
         });
 
+        if (error) {
+            console.error('Resend API returned error:', error);
+            return res.status(500).json({ message: 'Failed to send email via Resend', error });
+        }
+
         return res.status(200).json(data);
     } catch (error) {
-        console.error('Resend Error:', error);
-        return res.status(500).json({ message: 'Failed to send email', error });
+        console.error('Unexpected Resend Error:', error);
+        return res.status(500).json({ message: 'Unexpected error sending email', error });
     }
 }
