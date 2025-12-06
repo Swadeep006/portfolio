@@ -8,11 +8,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(500).json({ message: 'Missing RESEND_API_KEY environment variable' });
     }
 
-    // Check if resend is initialized correctly with the key, 
-    // though the top-level init might have run with undefined. 
-    // It's safer to re-init or just rely on the check above.
-    // Let's just trust top-level if we want, or better: 
-    // move init inside as planned.
+    console.log('API Key present, starting with:', apiKey.substring(0, 5) + '...');
 
     const resend = new Resend(apiKey);
 
