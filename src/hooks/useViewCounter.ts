@@ -1,22 +1,46 @@
 import { useEffect, useState } from 'react';
 
-const VIEW_COUNT_KEY = 'portfolio_view_count';
+// Using CountAPI.xyz - a free API for counting visitors
+// Format: https://api.countapi.xyz/hit/{namespace}/{key}
+const NAMESPACE = 'swadeep-portfolio';
+const KEY = 'visitors';
 
 export const useViewCounter = () => {
-    const [viewCount, setViewCount] = useState<number>(0);
+    const [visitorCount, setVisitorCount] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        // Get current count from localStorage
-        const storedCount = localStorage.getItem(VIEW_COUNT_KEY);
-        const currentCount = storedCount ? parseInt(storedCount, 10) : 0;
+        const incrementVisitorCount = async () => {
+            try {
+                // Hit the API to increment and get the current count
+                const response = await fetch(
+                    `https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`
+                );
 
-        // Increment the count
-        const newCount = currentCount + 1;
+                if (response.ok) {
+                    const data = await response.json();
+                    setVisitorCount(data.value);
+                } else {
+                    // Fallback: try to get the current count without incrementing
+                    const getResponse = await fetch(
+                        `https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`
+                    );
+                    if (getResponse.ok) {
+                        const getData = await getResponse.json();
+                        setVisitorCount(getData.value);
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to fetch visitor count:', error);
+                // Set a fallback value or keep at 0
+                setVisitorCount(0);
+            } finally {
+                setIsLoading(false);
+            }
+        };
 
-        // Update state and localStorage
-        setViewCount(newCount);
-        localStorage.setItem(VIEW_COUNT_KEY, newCount.toString());
+        incrementVisitorCount();
     }, []);
 
-    return viewCount;
+    return { count: visitorCount, isLoading };
 };
