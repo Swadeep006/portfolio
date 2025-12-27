@@ -11,10 +11,10 @@ interface Project {
 const projects: Project[] = [
     {
         name: 'PickItOut',
-        description: 'An e-commerce platform for fashion and lifestyle products.',
-        tech: ['React', 'Redux', 'Stripe'],
+        description: 'Extracts tables and images from PDF or image inputs using Microsoft Table Transformer models.',
+        tech: ['Microsoft Table Transformer', 'Hugging Face', 'Python', 'PyTorch'],
         link: 'https://github.com/Swadeep006/PickItOut',
-        image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80',
+        image: '/pickitout.png',
     },
     {
         name: 'XBlogs',
