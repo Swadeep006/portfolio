@@ -1,22 +1,16 @@
-import { Github, Linkedin, Mail, Users } from 'lucide-react';
-import { useViewCounter } from '../hooks/useViewCounter';
+import { Github, Linkedin, Mail } from 'lucide-react';
+
 
 const Footer = () => {
-    const { count: visitorCount, isLoading } = useViewCounter();
+
 
     return (
         <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-20">
             <div className="max-w-5xl mx-auto px-6 py-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    {/* Copyright and Visitor Counter */}
-                    <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    // Copyright
+                    <div className="text-sm text-neutral-500 dark:text-neutral-400">
                         <p className="text-center md:text-left">© {new Date().getFullYear()} <span className="whitespace-nowrap">Swadeep Dhondi.</span> All rights reserved.</p>
-                        <div className="flex items-center gap-2">
-                            <Users size={16} className="text-neutral-400" />
-                            <span className="font-medium">
-                                {isLoading ? '...' : visitorCount.toLocaleString()} visitors
-                            </span>
-                        </div>
                     </div>
 
                     {/* Social Links */}
