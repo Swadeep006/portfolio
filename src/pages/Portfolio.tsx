@@ -21,7 +21,7 @@ const projects: Project[] = [
         description: 'A comprehensive blogging platform allowing users to create, read, and share content.',
         tech: ['MERN Stack', 'Redux', 'Tailwind CSS'],
         link: 'https://github.com/Swadeep006/XBlogs',
-        image: 'https://images.unsplash.com/photo-1499750310159-5b600aaf0378?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=800&q=80',
     },
     {
         name: 'Virtualr',
