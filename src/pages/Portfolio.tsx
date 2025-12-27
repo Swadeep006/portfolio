@@ -19,7 +19,7 @@ const projects: Project[] = [
     {
         name: 'XBlogs',
         description: 'A comprehensive blogging platform allowing users to create, read, and share content.',
-        tech: ['MERN Stack', 'Redux', 'Tailwind CSS'],
+        tech: ['MongoDB', 'Express', 'React', 'Node.js', 'Zustand', 'Tailwind CSS'],
         link: 'https://github.com/Swadeep006/XBlogs',
         image: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=800&q=80',
     },
