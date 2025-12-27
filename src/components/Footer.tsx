@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-20">
             <div className="max-w-5xl mx-auto px-6 py-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    // Copyright
+
                     <div className="text-sm text-neutral-500 dark:text-neutral-400">
                         <p className="text-center md:text-left">© {new Date().getFullYear()} <span className="whitespace-nowrap">Swadeep Dhondi.</span> All rights reserved.</p>
                     </div>
